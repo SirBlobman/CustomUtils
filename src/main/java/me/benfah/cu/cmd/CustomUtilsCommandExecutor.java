@@ -12,30 +12,28 @@ public class CustomUtilsCommandExecutor implements CommandExecutor
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(label.equalsIgnoreCase("customutils"))
+		if (label.equalsIgnoreCase("customutils"))
 		{
-			if(args.length != 0)
-			{	
-				for(ISubCommand cmd : CommandRegistry.getSubCommands())
+			if (args.length != 0)
+			{
+				for (ISubCommand cmd : CommandRegistry.getSubCommands())
 				{
-					if(args[0].equals(cmd.commandName()))
+					if (args[0].equals(cmd.commandName()))
 					{
-						if(cmd.playerOnly())
+						if (cmd.playerOnly())
 						{
-							if(sender instanceof Player)
+							if (sender instanceof Player)
+								return cmd.onCommand(sender, command, label, args);
+						} else
 							return cmd.onCommand(sender, command, label, args);
-						}
-						else
-						return cmd.onCommand(sender, command, label, args);
 					}
 				}
-			}
-			else
+			} else
 			{
-				for(ISubCommand cmd : CommandRegistry.getSubCommands())
+				for (ISubCommand cmd : CommandRegistry.getSubCommands())
 				{
 					String printCmd = "/customutils " + cmd.commandName();
-					for(String arg : cmd.argumentNames())
+					for (String arg : cmd.argumentNames())
 					{
 						printCmd = printCmd + " " + arg;
 					}
@@ -44,7 +42,7 @@ public class CustomUtilsCommandExecutor implements CommandExecutor
 				}
 			}
 		}
-			return false;
+		return false;
 	}
 
 }

@@ -44,25 +44,23 @@ public class IBlockCommand implements ISubCommand
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(args.length == 1)
+		if (args.length == 1)
 		{
 			Utils.sendDetailedList(sender, CustomRegistry.CUSTOM_BLOCK_REGISTRY);
 			return true;
 		}
-		
-		
-		
+
 		Player p = (Player) sender;
-		if(args[0].equalsIgnoreCase("block"))
+		if (args[0].equalsIgnoreCase("block"))
 		{
-			for(CustomBlock cb : CustomRegistry.CUSTOM_BLOCK_REGISTRY)
+			for (CustomBlock cb : CustomRegistry.CUSTOM_BLOCK_REGISTRY)
 			{
-				if(args[1].equals(cb.getName()))
+				if (args[1].equals(cb.getName()))
 				{
-					if(p.hasPermission(new Permission("cu.block." + cb.getName(), PermissionDefault.OP)))
-					p.getInventory().addItem(cb.getBlockItem());
+					if (p.hasPermission(new Permission("cu.block." + cb.getName(), PermissionDefault.OP)))
+						p.getInventory().addItem(cb.getBlockItem());
 					else
-					p.sendMessage("No permission!");
+						p.sendMessage("No permission!");
 				}
 			}
 		}

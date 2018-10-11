@@ -40,10 +40,10 @@ public class IRepackageCommand implements ISubCommand
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(sender.hasPermission(new Permission("cu.repackage", PermissionDefault.OP)))
-		InitializationMethodProvider.initRP(true);
+		if (sender.hasPermission(new Permission("cu.repackage", PermissionDefault.OP)))
+			InitializationMethodProvider.initRP(true);
 		else
-		sender.sendMessage("No permission!");
+			sender.sendMessage("No permission!");
 		return false;
 	}
 

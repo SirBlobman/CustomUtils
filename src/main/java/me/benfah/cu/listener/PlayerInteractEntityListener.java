@@ -10,17 +10,15 @@ import me.benfah.cu.util.Utils;
 
 public class PlayerInteractEntityListener implements Listener
 {
-	
-	
-	
+
 	@EventHandler
 	public void onInteractEntity(PlayerInteractEntityEvent e)
 	{
-		if(e.getHand().equals(EquipmentSlot.HAND))
+		if (e.getHand().equals(EquipmentSlot.HAND))
 		{
 			CustomItem ci = Utils.getMainOrOffHandCI(e);
-			if(ci != null)
-			ci.onInteractEntity(e);
+			if (ci != null)
+				ci.onInteractEntity(e);
 		}
 	}
 }

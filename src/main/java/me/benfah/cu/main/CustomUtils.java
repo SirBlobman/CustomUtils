@@ -36,15 +36,11 @@ import me.benfah.cu.listener.SlotChangeListener;
 import me.benfah.cu.util.Config;
 import me.benfah.cu.util.JavassistUtil;
 import me.benfah.cu.util.TickRunnable;
+
 public class CustomUtils extends JavaPlugin
 {
 	public static CustomUtils instance;
 
-	
-	
-	
-	
-	
 	@Override
 	public void onEnable()
 	{
@@ -54,9 +50,9 @@ public class CustomUtils extends JavaPlugin
 		JavassistUtil.getContainerClass();
 		instance = this;
 		CustomRegistry.initMaps();
-		
+
 		Config.onEnable();
-		
+
 		InitializationMethodRegistry.initMethods();
 		InitializationMethodProvider.setCurrentMethod(Config.getConfiguration().getString("init-method"));
 		Bukkit.getPluginManager().registerEvents(new SlotChangeListener(), this);
@@ -70,53 +66,40 @@ public class CustomUtils extends JavaPlugin
 		CommandRegistry.initSubCommands();
 		Bukkit.getPluginCommand("customutils").setExecutor(new CustomUtilsCommandExecutor());
 		System.out.println("####### CUSTOMUTILS #######");
-		
-		
-		Bukkit.getScheduler().runTask(instance, new Runnable() {
-				
+
+		Bukkit.getScheduler().runTask(instance, new Runnable()
+		{
+
 			@Override
-			public void run() {
+			public void run()
+			{
 				InitializationMethodProvider.init(false);
-				
-				
+
 			}
 		});
-		
 
-        Bukkit.getScheduler().runTaskTimer(instance, new TickRunnable(), 1, 1);
+		Bukkit.getScheduler().runTaskTimer(instance, new TickRunnable(), 1, 1);
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public void onDisable()
 	{
-		
-		
-		for(Entry<Location, BlockInstance> entr : BlockInstance.getBlockInstanceMap().entrySet())
+
+		for (Entry<Location, BlockInstance> entr : BlockInstance.getBlockInstanceMap().entrySet())
 		{
-			if(entr.getValue() != null)
-			entr.getValue().write();
+			if (entr.getValue() != null)
+				entr.getValue().write();
 		}
-		
+
 		CustomRegistry.saveIDNameMap();
 		CustomRegistry.saveWorldStores();
-		
+
 		Config.onDisable();
 	}
-
-
-
-
 
 	public static CustomUtils getInstance()
 	{
 		return instance;
 	}
-	
-	
-	
-	
+
 }

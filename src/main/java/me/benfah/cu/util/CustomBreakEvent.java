@@ -11,7 +11,7 @@ public class CustomBreakEvent extends BlockBreakEvent
 	{
 		super(theBlock, player);
 	}
-	
+
 	private boolean droppable = false;
 
 	public boolean isDroppable()
@@ -23,9 +23,5 @@ public class CustomBreakEvent extends BlockBreakEvent
 	{
 		this.droppable = droppable;
 	}
-	
-	
-	
-	
 
 }

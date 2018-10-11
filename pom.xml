@@ -1,6 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>CustomUtils</groupId>
 	<artifactId>CustomUtils</artifactId>
 	<version>a0.1.6</version>
@@ -10,10 +12,6 @@
 		<repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-		<repository>
-			<id>inventive-repo</id>
-			<url>https://repo.inventivetalent.org/content/groups/public/</url>
 		</repository>
 
 
@@ -30,7 +28,7 @@
 		<dependency>
 			<groupId>com.dropbox.core</groupId>
 			<artifactId>dropbox-core-sdk</artifactId>
-			<version>3.0.5</version>
+			<version>3.0.9</version>
 			<scope>compile</scope>
 		</dependency>
 
@@ -59,16 +57,16 @@
 			<version>1.3.2</version>
 		</dependency>
 
-		
+
 
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.12.1-R0.1-SNAPSHOT</version>
+			<version>1.12.2-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 
-		
+
 
 
 

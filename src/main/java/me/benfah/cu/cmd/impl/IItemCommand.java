@@ -27,8 +27,8 @@ public class IItemCommand implements ISubCommand
 	}
 
 	@Override
-	public String description(
-			) {
+	public String description()
+	{
 		return "Gives the player the specific custom item.";
 	}
 
@@ -41,12 +41,12 @@ public class IItemCommand implements ISubCommand
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(args.length == 1)
+		if (args.length == 1)
 		{
 			Utils.sendDetailedList(sender, CustomRegistry.CUSTOM_ITEM_REGISTRY);
 			return true;
 		}
-		
+
 		Player p = (Player) sender;
 		for (CustomItem ci : CustomRegistry.CUSTOM_ITEM_REGISTRY)
 		{

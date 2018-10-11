@@ -41,14 +41,12 @@ public class IReloadCommand implements ISubCommand
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(sender.hasPermission(new Permission("cu.reload", PermissionDefault.OP)))
+		if (sender.hasPermission(new Permission("cu.reload", PermissionDefault.OP)))
 		{
 			Config.load();
 			sender.sendMessage(ChatColor.GREEN + "Config reloaded!");
 		}
 		return false;
 	}
-	
-	
 
 }

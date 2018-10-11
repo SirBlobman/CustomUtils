@@ -16,14 +16,17 @@ import me.benfah.cu.util.Utils;
 
 public class CustomItem extends CustomBase
 {
-	
+
 	protected String title;
 	protected List<String> lore;
-	public List<String> getLore() {
+
+	public List<String> getLore()
+	{
 		return lore;
 	}
 
-	public void setLore(List<String> lore) {
+	public void setLore(List<String> lore)
+	{
 		this.lore = lore;
 	}
 
@@ -32,60 +35,61 @@ public class CustomItem extends CustomBase
 		super(name, modelPath, Material.DIAMOND_HOE);
 		this.title = title;
 	}
-	
+
 	public CustomItem(String name, String modelPath, String title, List<String> lore)
 	{
 		super(name, modelPath, Material.DIAMOND_HOE);
 		this.title = title;
 		this.lore = lore;
 	}
-	
+
 	public CustomItem(String name, String modelPath, String title, Material baseMat)
 	{
 		super(name, modelPath, baseMat);
 		this.title = title;
 	}
-	
+
 	public CustomItem(String name, String modelPath, String title, List<String> lore, Material baseMat)
 	{
 		super(name, modelPath, baseMat);
 		this.title = title;
 		this.lore = lore;
 	}
-	
+
 	public ItemStack getItem()
 	{
 		ItemStack result = new ItemStack(baseMaterial);
 		result.setDurability(getMainModelPathEntry().getId());
 		ItemMeta im = result.getItemMeta();
 		im.setUnbreakable(true);
-		if(lore != null) im.setLore(lore);
+		if (lore != null)
+			im.setLore(lore);
 		im.setDisplayName(ChatColor.RESET + title);
 		result.setItemMeta(im);
 		result = Utils.updateTags(result);
 		return result;
 	}
-	
+
 	public void onUpdate(Player p, int slot)
 	{
-		
+
 	}
-	
+
 	public void onInteract(PlayerInteractEvent e, EquipmentSlot es)
 	{
-		
+
 	}
-	
+
 	public Recipe getRecipe()
 	{
 		return null;
 	}
-	
+
 	public void onInteractEntity(PlayerInteractEntityEvent e)
 	{
-		
+
 	}
-	
+
 	public String getTitle()
 	{
 		return title;
@@ -95,6 +99,5 @@ public class CustomItem extends CustomBase
 	{
 		this.title = title;
 	}
-	
-	
+
 }

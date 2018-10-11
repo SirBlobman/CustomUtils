@@ -13,7 +13,8 @@ public class SlotChangeListener implements Listener
 	public void onSlotChange(PlayerItemHeldEvent e)
 	{
 		Inventory inv = e.getPlayer().getOpenInventory().getTopInventory();
-		if(JavassistUtil.getCUInventoryClass().isInstance(inv) || JavassistUtil.getCUInventoryCustomClass().isInstance(inv))
+		if (JavassistUtil.getCUInventoryClass().isInstance(inv)
+				|| JavassistUtil.getCUInventoryCustomClass().isInstance(inv))
 		{
 			e.setCancelled(true);
 		}

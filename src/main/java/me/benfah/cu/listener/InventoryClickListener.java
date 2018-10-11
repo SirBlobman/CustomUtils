@@ -10,26 +10,31 @@ import me.benfah.cu.api.CustomRegistry;
 
 public class InventoryClickListener implements Listener
 {
-	
+
 	@EventHandler
 	public void onInteract(InventoryClickEvent e)
 	{
-		if(CustomRegistry.isCustomGUI(e.getInventory()))
+		if (CustomRegistry.isCustomGUI(e.getInventory()))
 		{
 			CustomGUI cg = CustomRegistry.getCustomGUIByInventory(e.getInventory());
-			
-			if(!(e.getClickedInventory() instanceof PlayerInventory))
-			if((e.getSlot() == 0 && e.getCurrentItem().hasItemMeta() ? e.getCurrentItem().getItemMeta().isUnbreakable() ? e.getCurrentItem().getDurability() > 0 : false : false) || (e.getSlot() == e.getInventory().getSize() - 9 && e.getCurrentItem().hasItemMeta() ? e.getCurrentItem().getItemMeta().isUnbreakable() ? e.getCurrentItem().getDurability() > 0 : false : false))
-			{
-				e.setCancelled(true);
-			}
-			
-			
-			
-			
-			if(!e.isCancelled())
-			cg.onClick(e);
+
+			if (!(e.getClickedInventory() instanceof PlayerInventory))
+				if ((e.getSlot() == 0 && e.getCurrentItem().hasItemMeta()
+						? e.getCurrentItem().getItemMeta().isUnbreakable() ? e.getCurrentItem().getDurability() > 0
+								: false
+						: false)
+						|| (e.getSlot() == e.getInventory().getSize() - 9 && e.getCurrentItem().hasItemMeta()
+								? e.getCurrentItem().getItemMeta().isUnbreakable()
+										? e.getCurrentItem().getDurability() > 0
+										: false
+								: false))
+				{
+					e.setCancelled(true);
+				}
+
+			if (!e.isCancelled())
+				cg.onClick(e);
 		}
 	}
-	
+
 }

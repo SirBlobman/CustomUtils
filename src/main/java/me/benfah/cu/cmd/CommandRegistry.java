@@ -12,8 +12,7 @@ import me.benfah.cu.cmd.impl.IRepackageCommand;
 public class CommandRegistry
 {
 	private static List<ISubCommand> subCommands = new ArrayList<>();
-	
-	
+
 	public static void initSubCommands()
 	{
 		subCommands.clear();
@@ -23,7 +22,7 @@ public class CommandRegistry
 		subCommands.add(new IRepackageCommand());
 		subCommands.add(new IChooseMethodCommand());
 	}
-	
+
 	public static List<ISubCommand> getSubCommands()
 	{
 		return subCommands;
